@@ -8,7 +8,7 @@ require("dotenv").config();
 app.use(express.json());  
 app.use(cors({
   AccessControlAllowOrigin: '*',
-  origin : "*"
+  origin : "https://makeyourownchocolate.cocoa-pods.in"
 }));
 const bodyParser = require('body-parser');
 
