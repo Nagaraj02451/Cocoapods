@@ -7,6 +7,7 @@ require("dotenv").config();
 
 app.use(express.json());  
 app.use(cors({
+  AccessControlAllowOrigin: '*',
   origin : "*"
 }));
 const bodyParser = require('body-parser');
