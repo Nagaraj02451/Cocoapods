@@ -53,7 +53,7 @@ const newPayment = async (req, res) => {
 
         axios.request(options).then(function (response) {
             console.log(response.data)
-            return res.redirect(response.data.data.instrumentResponse.redirectInfo.url)
+            return res.send(response.data.data.instrumentResponse.redirectInfo.url)
         })
 
 
@@ -91,92 +91,15 @@ const checkStatus = async(req, res) => {
     }
     };
 
-    axios.request(options).then(async(response) => {
-        // console.log(response.data)
-        if (response.data.success === true) {
- 
-            const transporter = nodemailer.createTransport({
-                service: "gmail",
-                auth: {
-                    user: process.env.EMAIL,
-                    pass: process.env.PASSWORD
-                }
-            });
-            const mailOptions = {
-                from: process.env.EMAIL,
-                to: email ,  
-                subject: "Conformation",
-                html: `
-                <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
-                <div>
-                  <div style="display: flex; justify-content: center;">
-                      <img src="https://i.postimg.cc/50ZG7KZz/Moppp.png" style="width:100%; height: 50%;" />
-                  </div>
-          
-                  <div style="display: flex; justify-content:center;">
-                    <div style="width: 100%; background-color: black; color: white;">
-                    <div style="text-align: center;">
-                      <h2>Your order is on the way!</h2>
-                      <h4>Your order shipped</h4>
-                    </div>
-                      <div style="display: flex; justify-content: center; " >
-                      <div >
-                      <p><span style="color: #BA983C;">Name</span> : ${req.body.name}</p>
-          
-                      <p><span style="color: #BA983C;">Email</span> : ${req.body.email}</p>
-            
-                      <p><span style="color: #BA983C;">Number</span> : ${req.body.number}</p>
-          
-                      <p><span style="color: #BA983C;">Address</span> : ${req.body.address}</p>
-          
-                      <p><span style="color: #BA983C;">Gift</span> : ${req.body.final}</p>
-          
-             
-          
-                  </div>
-                      
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                </div>
-          </div>
-          
-            
-              `
-            };
-          
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    console.log("Error" + error)
-                } else {
-                    console.log("Email sent:" + info.response);
-                    res.status(201).json({status:201,info})
-                }
-          
-            })
-          
-
-
-            
-        }
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-
+    
     // CHECK PAYMENT TATUS
     axios.request(options).then(async(response) => {
         console.log(response.data)
         if (response.data.success === true) {
             const url = `https://makeyourownchocolate.cocoa-pods.in/final`
             return res.redirect(url)
-
-
-
-            
         } else {
-            const url = `https://makeyourownchocolate.cocoa-pods.in/failiour`
+            const url = `https://makeyourownchocolate.cocoa-pods.in/failed`
             return res.redirect(url)
         }
     })
