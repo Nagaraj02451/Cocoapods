@@ -61,6 +61,83 @@ const newPayment = async (req, res) => {
             console.error(error);
         });
 
+        
+        axios.request(options).then(function (response) {
+            if (response.data.success === true) {
+                const transporter = nodemailer.createTransport({
+                    service: "gmail",
+                    auth: {
+                        user: process.env.EMAIL,
+                        pass: process.env.PASSWORD
+                    }
+                });
+                const mailOptions = {
+                    from: process.env.EMAIL,
+                    to: email ,  
+                    subject: "Conformation",
+                    html: `
+                    <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
+                    <div>
+                      <div style="display: flex; justify-content: center;">
+                          <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%; height: 50%;" />
+                      </div>
+              
+                      <div style="display: flex; justify-content:center;">
+                        <div style="width: 100%; background-color: black; color: white;">
+                        <div style="text-align: center;">
+                          <h2>Your order is on the way!</h2>
+                          <h4>Your order shipped</h4>
+                        </div>
+                          <div style="display: flex; justify-content: center; " >
+                          <div >
+                          <p><span style="color: #BA983C;">Name</span> : ${req.body.CusName}</p>
+              
+                          <p><span style="color: #BA983C;">Email</span> : ${req.body.Email}</p>
+                
+                          <p><span style="color: #BA983C;">Number</span> : ${req.body.Address}</p>
+
+                          <p><span style="color: #BA983C;">Chocolate</span> : ${req.body.final}</p>
+              
+                        
+                      </div>
+                          <div>
+                          <p><span style="color: #BA983C;">Address</span> : ${req.body.address}</p>
+              
+                          <p><span style="color: #BA983C;">Gift</span> : ${req.body.yes}</p>
+              
+                          <p><span style="color: #BA983C;">Amount</span> : ${req.body.amount}</p>
+
+                          <p><span style="color: #BA983C;">Fillings</span> : ${req.body.finalTwo}</p>
+                          
+                          <p><span style="color: #BA983C;">Toppings</span> : ${req.body.FinalThree}</p>
+              
+                     
+              <br />
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                    </div>
+              </div>
+              
+                
+                  `
+                };
+              
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.log("Error" + error)
+                    } else {
+                        console.log("Email sent:" + info.response);
+                        res.status(201).json({status:201,info})
+                    }
+              
+                })
+              
+            }
+        })
+
 
 
     } catch (error) {
