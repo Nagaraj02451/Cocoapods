@@ -64,10 +64,10 @@ const newPayment = async (req, res) => {
                     });
                     const mailOptions = {
                         from: process.env.EMAIL,
-                        to: "nagaraj02022000@gmail.com",  
+                        to: req.body.Email,  
                         subject: "Conformation",
                         html: `
-                        <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
+                        <div style="display: flex; justify-content: center; width: 100%; height: 150vh;">
                         <div>
                           <div style="display: flex; justify-content: center;">
                               <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%; height: 45vh;" />
@@ -181,11 +181,11 @@ const checkStatus = async(req, res) => {
     axios.request(options).then(async(response) => {
         console.log(response.data)
         if (response.data.success === true) {
-            const url = `https://cocoapods.onrender.com/final`
+            const url = `https://makeyourownchocolate.cocoa-pods.in/final`
             return res.redirect(url)
             
         } else {
-            const url = `https://cocoapods.onrender.com/failed`
+            const url = `https://makeyourownchocolate.cocoa-pods.in/failed`
             return res.redirect(url)
         }
     })
