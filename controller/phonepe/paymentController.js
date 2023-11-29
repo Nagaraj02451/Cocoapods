@@ -67,12 +67,12 @@ const newPayment = async (req, res) => {
                         to: req.body.Email,  
                         subject: "Conformation",
                         html: `
-                        <div style="display: flex; justify-content: center; width: 100%; height: 150vh;">
+                        <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
                         <div>
-                          <div style="display: flex; justify-content: center;">
-                              <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%; height: 45vh;" />
+                          <div style="width: 100%;  height: 60vh;display: flex; justify-content: center;">
+                              <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%;  height: 100vh;" />
                           </div>
-                  
+                    
                           <div style="display: flex; justify-content:center;">
                             <div style="width: 100%; background-color: black; color: white;">
                             <div style="text-align: center;">
@@ -80,45 +80,45 @@ const newPayment = async (req, res) => {
                               <h4  style="color: #BA983C;">Your order shipped</h4>
                               <br />
                             </div>
-                              <div style="width: 100%; height: 36vh; margin-left:10%;  " >
-                              <div >
+                              <div style="width: 100%; display: flex; height: 28vh; margin-left:10%;  " >
+                              <div style="width: 50%;">
                               <p><span style="color: #BA983C;">Name</span>       :    ${req.body.CusName}</p>
-                  
+                    
                               <p><span style="color: #BA983C;">Email</span>      :    ${req.body.Email}</p>
                     
                               <p><span style="color: #BA983C;">Number</span>     :    ${req.body.Number}</p>
                               
                               <p><span style="color: #BA983C;">Address</span>    :    ${req.body.Address}</p>
-
+                    
                               <p><span style="color: #BA983C;">Gift</span>       :    ${req.body.GiftY}</p>
-                  
+                    
+                              <p><span style="color: #BA983C;">Tax</span>        :    ${req.body.tax}</p>
                             
                           </div>
-                              <div>
-                  
-                  
-                              <p><span style="color: #BA983C;">Tax</span>        :    ${req.body.tax}</p>
-
+                              <div style="width: 50%;">
+                    
+                    
+                    
                               <p><span style="color: #BA983C;">Rate</span>       :    ${req.body.Amount}</p>
-
+                    
                               <p><span style="color: #BA983C;">Paid Amount</span>:    ${req.body.amount}</p>
-
+                    
                               <p><span style="color: #BA983C;">Chocolate</span>  :    ${req.body.Final}</p>
-                
+                    
                               <p><span style="color: #BA983C;">Fillings</span>   :    ${req.body.FinalTwo}</p>
                               
                               <p><span style="color: #BA983C;">Toppings</span>   :    ${req.body.FinalThree}</p>
-                  
+                    
                          
-                  <br />
+                    <br />
                           </div>
                           </div>
                           </div>
                           </div>
                           </div>
                         </div>
-                  </div>
-                  
+                    </div>
+                    
                     
                       `
                     };
