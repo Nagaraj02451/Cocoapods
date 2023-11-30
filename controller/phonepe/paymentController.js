@@ -4,8 +4,30 @@ const nodemailer = require("nodemailer");
 // const {salt_key, merchant_id} = require('./secret')
 // console.log(process.env.salt_key);
 
+let CusName = []
+let amount = []
+let Email = []
+let Number = []
+let Address = []
+let GiftY = []
+let Final = []
+let FinalTwo = []
+let FinalThree = []
+let tax = []
+let Amount = []
 const newPayment = async (req, res) => {
 // console.log(req.body.GiftY);
+CusName.push(req.body.CusName)
+Email.push(req.body.Email)
+Number.push(req.body.Number)
+Address.push(req.body.Address)
+GiftY.push(req.body.GiftY)
+Final.push(req.body.Final)
+FinalTwo.push(req.body.FinalTwo)
+FinalThree.push(req.body.FinalThree)
+amount.push(req.body.amount)
+tax.push(req.body.tax)
+Amount.push(req.body.Amount)
     try {
 
         const merchantTransactionId = req.body.transactionId;
@@ -52,93 +74,6 @@ const newPayment = async (req, res) => {
 
         axios.request(options).then(function (response) {
             // console.log(response.data.success)
-
-    
-                if(response.data.success === true){
-                    const transporter = nodemailer.createTransport({
-                        service: "gmail",
-                        auth: {
-                            user: process.env.EMAIL,
-                            pass: process.env.PASSWORD
-                        }
-                    });
-                    const mailOptions = {
-                        from: process.env.EMAIL,
-                        to: req.body.Email,  
-                        subject: "Conformation",
-                        html: `
-                        <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
-                        <div>
-                          <div style="width: 100%;  height: 60vh;display: flex; justify-content: center;">
-                              <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%;  height: 100vh;" />
-                          </div>
-                    
-                          <div style="display: flex; justify-content:center;">
-                            <div style="width: 100%; background-color: black; color: white;">
-                            <div style="text-align: center;">
-                              <h2  style="color: #BA983C;">Your order is on the way!</h2>
-                              <h4  style="color: #BA983C;">Your order shipped</h4>
-                              <br />
-                            </div>
-                              <div style="width: 100%; display: flex; height: 28vh; margin-left:10%;  " >
-                              <div style="width: 50%;">
-                              <p><span style="color: #BA983C;">Name</span>       :    ${req.body.CusName}</p>
-                    
-                              <p><span style="color: #BA983C;">Email</span>      :    ${req.body.Email}</p>
-                    
-                              <p><span style="color: #BA983C;">Number</span>     :    ${req.body.Number}</p>
-                              
-                              <p><span style="color: #BA983C;">Address</span>    :    ${req.body.Address}</p>
-                    
-                              <p><span style="color: #BA983C;">Gift</span>       :    ${req.body.GiftY}</p>
-                    
-                              <p><span style="color: #BA983C;">Tax</span>        :    ${req.body.tax}</p>
-                            
-                          </div>
-                              <div style="width: 50%;">
-                    
-                    
-                    
-                              <p><span style="color: #BA983C;">Rate</span>       :    ${req.body.Amount}</p>
-                    
-                              <p><span style="color: #BA983C;">Paid Amount</span>:    ${req.body.amount}</p>
-                    
-                              <p><span style="color: #BA983C;">Chocolate</span>  :    ${req.body.Final}</p>
-                    
-                              <p><span style="color: #BA983C;">Fillings</span>   :    ${req.body.FinalTwo}</p>
-                              
-                              <p><span style="color: #BA983C;">Toppings</span>   :    ${req.body.FinalThree}</p>
-                    
-                         
-                    <br />
-                          </div>
-                          </div>
-                          </div>
-                          </div>
-                          </div>
-                        </div>
-                    </div>
-                    
-                    
-                      `
-                    };
-                  
-                    transporter.sendMail(mailOptions, (error, info) => {
-                        if (error) {
-                            
-                            console.log("Error" + error)
-                        } else {
-                            console.log("Email sent:" + info.response);
-                            res.status(201).json({status:201,info})
-                        }
-                  
-                    })
-                  
-                }
-               
-      
-           
-
             return res.send(response.data.data.instrumentResponse.redirectInfo.url)
         })
 
@@ -181,6 +116,90 @@ const checkStatus = async(req, res) => {
     axios.request(options).then(async(response) => {
         console.log(response.data)
         if (response.data.success === true) {
+
+            if(response.data.success === true){
+                const transporter = nodemailer.createTransport({
+                    service: "gmail",
+                    auth: {
+                        user: process.env.EMAIL,
+                        pass: process.env.PASSWORD
+                    }
+                });
+                const mailOptions = {
+                    from: process.env.EMAIL,
+                    to: Email,  
+                    subject: "Conformation",
+                    html: `
+                    <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
+                    <div>
+                      <div style="width: 100%;  height: 60vh;display: flex; justify-content: center;">
+                          <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%;  height: 100vh;" />
+                      </div>
+                
+                      <div style="display: flex; justify-content:center;">
+                        <div style="width: 100%; background-color: black; color: white;">
+                        <div style="text-align: center;">
+                          <h2  style="color: #BA983C;">Your order is on the way!</h2>
+                          <h4  style="color: #BA983C;">Your order shipped</h4>
+                          <br />
+                        </div>
+                          <div style="width: 100%; display: flex; height: 28vh; margin-left:10%;  " >
+                          <div style="width: 50%;">
+                          <p><span style="color: #BA983C;">Name</span>       :    ${CusName}</p>
+                
+                          <p><span style="color: #BA983C;">Email</span>      :    ${Email}</p>
+                
+                          <p><span style="color: #BA983C;">Number</span>     :    ${Number}</p>
+                          
+                          <p><span style="color: #BA983C;">Address</span>    :    ${Address}</p>
+                
+                          <p><span style="color: #BA983C;">Gift</span>       :    ${GiftY}</p>
+                
+                          <p><span style="color: #BA983C;">Tax</span>        :    ${tax}</p>
+                        
+                      </div>
+                          <div style="width: 50%;">
+                
+                
+                
+                          <p><span style="color: #BA983C;">Rate</span>       :    ${Amount}</p>
+                
+                          <p><span style="color: #BA983C;">Paid Amount</span>:    ${amount}</p>
+                
+                          <p><span style="color: #BA983C;">Chocolate</span>  :    ${Final}</p>
+                
+                          <p><span style="color: #BA983C;">Fillings</span>   :    ${FinalTwo}</p>
+                          
+                          <p><span style="color: #BA983C;">Toppings</span>   :    ${FinalThree}</p>
+                
+                     
+                <br />
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+                
+                
+                  `
+                };
+              
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        
+                        console.log("Error" + error)
+                    } else {
+                        console.log("Email sent:" + info.response);
+                        res.status(201).json({status:201,info})
+                    }
+              
+                })
+              
+            }
+           
+
             const url = `https://makeyourownchocolate.cocoa-pods.in/final`
             return res.redirect(url)
             
