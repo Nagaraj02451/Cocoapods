@@ -132,7 +132,7 @@ const checkStatus = async(req, res) => {
                     html: `
                     <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
                     <div>
-                      <div style="width: 100%;  height: 60vh;display: flex; justify-content: center;">
+                      <div style="width: 100%;  height: 65vh;display: flex; justify-content: center;">
                           <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%;  height: 100vh;" />
                       </div>
                 
