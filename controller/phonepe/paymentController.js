@@ -149,7 +149,7 @@ const checkStatus = async(req, res) => {
           <h4  style="color: #BA983C;">Your order shipped</h4>
           <br />
         </div>
-          <div style="width: 100%; display: flex; height: 40vh; " >
+          <div style="width: 100%; display: flex; height: 40vh; margin-left:3%;" >
           <div style="width: 40%;">
           <p><span style="color: #BA983C;">Name</span>       :    ${CusName}</p>
 
