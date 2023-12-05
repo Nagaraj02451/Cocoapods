@@ -136,57 +136,59 @@ const checkStatus = async(req, res) => {
                     to: Email,  
                     subject: "Conformation",
                     html: `
-                    <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
-                    <div>
-                      <div style="width: 100%;  height: 70vh;display: flex; justify-content: center;">
-                          <img src="https://i.postimg.cc/CKhDmJTC/about-us-1.png" style="width:100%;  height: 100vh;" />
-                      </div>
-                
-                      <div style="display: flex; justify-content:center;">
-                        <div style="width: 100%; background-color: black; color: white;">
-                        <div style="text-align: center;">
-                          <h2  style="color: #BA983C;">Your order is on the way!</h2>
-                          <h4  style="color: #BA983C;">Your order shipped</h4>
-                          <br />
-                        </div>
-                          <div style="width: 100%; display: flex; height: 28vh; margin-left:10%;  " >
-                          <div style="width: 50%;">
-                          <p><span style="color: #BA983C;">Name</span>       :    ${CusName}</p>
-                
-                          <p><span style="color: #BA983C;">Email</span>      :    ${Email}</p>
-                
-                          <p><span style="color: #BA983C;">Number</span>     :    ${Number}</p>
-                          
-                          <p><span style="color: #BA983C;">Address</span>    :    ${Address}</p>
-                
-                          <p><span style="color: #BA983C;">Gift</span>       :    ${GiftY}</p>
-                
-                          <p><span style="color: #BA983C;">Tax</span>        :    ${tax}</p>
-                        
-                      </div>
-                          <div style="width: 50%;">
-                
-                
-                
-                          <p><span style="color: #BA983C;">Rate</span>       :    ${Amount}</p>
-                
-                          <p><span style="color: #BA983C;">Paid Amount</span>:    ${amount}</p>
-                
-                          <p><span style="color: #BA983C;">Chocolate</span>  :    ${Final}</p>
-                
-                          <p><span style="color: #BA983C;">Fillings</span>   :    ${FinalTwo} ${FinalOne}</p>
-                          
-                          <p><span style="color: #BA983C;">Toppings</span>   :    ${FinalThree} ${FinalThreeOne}</p>
-                
-                     
-                <br />
-                      </div>
-                      </div>
-                      </div>
-                      </div>
-                      </div>
-                    </div>
-                </div>
+                   <div style="display: flex; justify-content: center; width: 100%; height: 100vh;">
+    <div>
+      <div style="width: 100%;  height:60vh;display: flex; justify-content: center;">
+          <img src="https://i.postimg.cc/150KB4Vg/ourprocess.png" style="width:100%;  " />
+      </div>
+
+      <div style="display: flex; justify-content:center;">
+        <div style="width: 100%; background-color: black; color: white;">
+        <div style="text-align: center;">
+          <h2  style="color: #BA983C;">Your order is on the way!</h2>
+          <h4  style="color: #BA983C;">Your order shipped</h4>
+          <br />
+        </div>
+          <div style="width: 100%; display: flex; height: 40vh; margin-left:10%;  " >
+          <div style="width: 40%;">
+          <p><span style="color: #BA983C;">Name</span>       :    ${CusName}</p>
+
+          <p><span style="color: #BA983C;">Email</span>      :    ${Email}</p>
+
+          <p><span style="color: #BA983C;">Number</span>     :    ${Number}</p>
+          
+          <p><span style="color: #BA983C;">Address</span>    :    ${Address}</p>
+
+          <p><span style="color: #BA983C;">Gift</span>       :    ${GiftY}</p>
+
+          <p><span style="color: #BA983C;">Tax</span>        :    ${tax}</p>
+        
+      </div>
+          <div style="width: 60%;">
+
+
+
+          <p><span style="color: #BA983C;">Rate</span>       :    ${Amount}</p>
+
+          <p><span style="color: #BA983C;">Paid Amount</span>:    ${amount}</p>
+
+          <p><span style="color: #BA983C;">Chocolate</span>  :    ${Final}</p>
+
+          <p><span style="color: #BA983C;">Fillings</span>   :    ${FinalTwo} ${FinalOne}</p>
+          
+          <p><span style="color: #BA983C;">Toppings</span>   :    ${FinalThree} ${FinalThreeOne}</p>
+
+     
+<br />
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+
                 
                 
                   `
