@@ -15,6 +15,9 @@ let FinalTwo = []
 let FinalThree = []
 let tax = []
 let Amount = []
+let FinalOne = []
+let FinalThreeOne = []
+
 const newPayment = async (req, res) => {
 // console.log(req.body.GiftY);
 CusName.push(req.body.CusName)
@@ -28,6 +31,9 @@ FinalThree.push(req.body.FinalThree)
 amount.push(req.body.amount)
 tax.push(req.body.tax)
 Amount.push(req.body.Amount)
+    FinalOne.push(req.body.finalTwo1)
+    FinalThreeOne.push(req.body.finalThree1)
+    
     try {
 
         const merchantTransactionId = req.body.transactionId;
@@ -168,9 +174,9 @@ const checkStatus = async(req, res) => {
                 
                           <p><span style="color: #BA983C;">Chocolate</span>  :    ${Final}</p>
                 
-                          <p><span style="color: #BA983C;">Fillings</span>   :    ${FinalTwo}</p>
+                          <p><span style="color: #BA983C;">Fillings</span>   :    ${FinalTwo} ${FinalOne}</p>
                           
-                          <p><span style="color: #BA983C;">Toppings</span>   :    ${FinalThree}</p>
+                          <p><span style="color: #BA983C;">Toppings</span>   :    ${FinalThree} ${FinalThreeOne}</p>
                 
                      
                 <br />
