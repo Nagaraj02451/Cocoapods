@@ -20,19 +20,19 @@ let FinalThreeOne = []
 
 const newPayment = async (req, res) => {
 // console.log(req.body.GiftY);
-CusName.push(req.body.CusName)
-Email.push(req.body.Email)
-Number.push(req.body.Number)
-Address.push(req.body.Address)
-GiftY.push(req.body.GiftY)
-Final.push(req.body.Final)
-FinalTwo.push(req.body.FinalTwo)
-FinalThree.push(req.body.FinalThree)
-amount.push(req.body.amount)
-tax.push(req.body.tax)
-Amount.push(req.body.Amount)
-    FinalOne.push(req.body.finalTwo1)
-    FinalThreeOne.push(req.body.finalThree1)
+CusName[0] = req.body.CusName
+Email[0] = req.body.Email
+Number[0] = req.body.Number
+Address[0] = req.body.Address
+GiftY[0] = req.body.GiftY
+Final[0] = req.body.Final
+FinalTwo[0] = req.body.FinalTwo
+FinalThree[0] = req.body.FinalThree
+amount[0] = req.body.amount
+tax[0] = req.body.tax
+Amount[0] = req.body.Amount
+    FinalOne[0] = req.body.finalTwo1
+    FinalThreeOne[0] = req.body.finalThree1
     
     try {
 
@@ -151,32 +151,32 @@ const checkStatus = async(req, res) => {
         </div>
           <div style="width: 100%; display: flex; height: 40vh; margin-left:3%;" >
           <div style="width: 40%;">
-          <p><span style="color: #BA983C;">Name</span>       :    ${CusName}</p>
+          <p><span style="color: #BA983C;">Name</span>       :    ${CusName[0]}</p>
 
-          <p><span style="color: #BA983C;">Email</span>      :    ${Email}</p>
+          <p><span style="color: #BA983C;">Email</span>      :    ${Email[0]}</p>
 
-          <p><span style="color: #BA983C;">Number</span>     :    ${Number}</p>
+          <p><span style="color: #BA983C;">Number</span>     :    ${Number[0]}</p>
           
-          <p><span style="color: #BA983C;">Address</span>    :    ${Address}</p>
+          <p><span style="color: #BA983C;">Address</span>    :    ${Address[0]}</p>
 
-          <p><span style="color: #BA983C;">Gift</span>       :    ${GiftY}</p>
+          <p><span style="color: #BA983C;">Gift</span>       :    ${GiftY[0]}</p>
 
-          <p><span style="color: #BA983C;">Tax</span>        :    ${tax}</p>
+          <p><span style="color: #BA983C;">Tax</span>        :    ${tax[0]}</p>
         
       </div>
           <div style="width: 60%;">
 
 
 
-          <p><span style="color: #BA983C;">Rate</span>       :    ${Amount}</p>
+          <p><span style="color: #BA983C;">Rate</span>       :    ${Amount[0]}</p>
 
-          <p><span style="color: #BA983C;">Paid Amount</span>:    ${amount}</p>
+          <p><span style="color: #BA983C;">Paid Amount</span>:    ${amount[0]}</p>
 
-          <p><span style="color: #BA983C;">Chocolate</span>  :    ${Final}</p>
+          <p><span style="color: #BA983C;">Chocolate</span>  :    ${Final[0]}</p>
 
-          <p><span style="color: #BA983C;">Fillings</span>   :    ${FinalTwo} ${FinalOne}</p>
+          <p><span style="color: #BA983C;">Fillings</span>   :    ${FinalTwo[0]} ${FinalOne[0]}</p>
           
-          <p><span style="color: #BA983C;">Toppings</span>   :    ${FinalThree} ${FinalThreeOne}</p>
+          <p><span style="color: #BA983C;">Toppings</span>   :    ${FinalThree[0]} ${FinalThreeOne[0]}</p>
 
      
 <br />
